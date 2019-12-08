@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Diary</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="pos-f-t">
+        <header>
+            <nav class="navbar navbar-expand-lg nav-custom">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item ">
+                            <a class="nav-link " href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#newEntry">Add New
+                                Entry</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link " href="#">Entries</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+            <div class="header ">
+                <img src="assets/homeBG.jpg" alt="Home">
+            </div>
+            <!-- <div id="demo" class="carousel slide" data-ride="carousel"> -->
+
+            <!-- Indicators -->
+            <!-- <ul class="carousel-indicators">
+                      <li data-target="#demo" data-slide-to="0" class="active"></li>
+                      <li data-target="#demo" data-slide-to="1"></li>
+                      <li data-target="#demo" data-slide-to="2"></li>
+                    </ul> -->
+
+            <!-- The slideshow -->
+            <!-- <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets/test.png" alt="Note">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/test2.jfif" alt="Note 2" height="200px">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="ny.jpg" alt="New York">
+                      </div>
+                    </div> -->
+
+            <!-- Left and right controls -->
+            <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                    </a>
+                  
+                  </div> -->
+        </header>
+
+        <!-- Page content -->
+        <div class="container">
+            <div class="row">
+                <div class="container mt-3">
+                    <div class="media border p-3">
+                        <img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 ">
+                        <div class="media-body">
+                            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.
+                            </p>
+                            <button class="btn btn-primary" type="button"> View</button>
+                        </div>
+                    </div>
+                    <div class="media border p-3">
+                        <img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 ">
+                        <div class="media-body">
+                            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua
+                            </p>
+                            <button class="btn btn-primary" type="button"> View</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- modal for creating new entry -->
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade " id="newEntry" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header panel-heading">
+                        <h5 class="modal-title" id="modalTitle">Add New Entry</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body panel-body">
+                        <form>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Title" aria-label="Title">
+                            <br>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="uploadFile">
+                                <label class="custom-file-label" for="uploadFile">Choose file</label>
+                            </div>
+                            <textarea placeholder="Type Here" class="form-control"></textarea>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer panel-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
