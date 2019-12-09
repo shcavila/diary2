@@ -16,10 +16,10 @@ $(document).ready(function () {
                 console.log(response.data, 'the data')
                 response.data.forEach(element => {
                     let date = new Date(Date.parse(element.createdAt))
-                    templateString = ` <div class="posted media border p-3"><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
+                    templateString = ` <div class="posted media border p-3"  id='${element._id}'><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
                      <div class="media-body"> <h4>John Doe <small><i>Posted on ${date.toUTCString()}</i></small></h4><h5>${element.title}</h5> 
-                     <img src=${imageURL}${element.img} alt='image' >
-                     <p>${element.body}</p> <br></div><div class=" d-flex-inline" > <button class="btn btn-primary" type="button" id='btnView'> View</button> </div></div>`
+                     <img src=${imageURL}${element.img} alt='image'  class='center'>
+                     <p>${element.body}</p> <br></div>  <button class="btn btn-primary btnView d-flex-inline" type="button" > View</button>  </div>`
                     $(templateString).appendTo('.content');
                     $('#newEntry').modal('hide');
                 });
@@ -44,9 +44,9 @@ $(document).ready(function () {
                    console.log(true)
                 response.data.forEach(element => {
                     let date = new Date(Date.parse(element.createdAt))
-                    templateString = ` <div class="media border p-3"><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
+                    templateString = ` <div class="media border p-3" id='${element._id}'><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
                      <div class="media-body"> <h4>John Doe <small><i>Posted on ${date.toUTCString()}</i></small></h4><h5>${element.title}</h5> 
-                     <p>${element.body}</p> <br></div> <div class="d-flex" > <button class="btn btn-primary" type="button" id='btnView'> View</button> </div> </div>`
+                     <p>${element.body}</p> <br></div> <div class="d-flex" > <button class="btn btn-primary btnView" type="button" > View</button> </div> </div>`
                     $(templateString).appendTo('.content');
                     $('#newEntry').modal('hide');
                 });
@@ -99,7 +99,8 @@ $(document).ready(function () {
                 let date = new Date(Date.parse(response.createdAt))
                 templateString = ` <div class="media border p-3"><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
                     <div class="media-body"> <h4>John Doe <small><i>Posted on ${date.toUTCString()}</i></small></h4><h5>${response.title}</h5> 
-                    <p>${response.body}</p> <br></div> <div class="d-flex" > <button class="btn btn-primary" type="button"> View</button> </div> </div>`
+                    <p>${response.body}</p> <br>
+                    <div class="d-flex" > <button class="btn btn-primary" type="button"> View</button> </div></div> </div>`
                 $('.content .media').last().remove();
                 $(templateString).prependTo('.content');
                 $('#title').val('');
@@ -116,11 +117,21 @@ $(document).ready(function () {
 
     });
 
-
-    $('#btnView').click(function(){
-        alert('clicked')
-            $(this).parent().attr('overflow','auto')
+    $(document).on('click', '.btnView', function () {
+         alert('clicked');
+        if(  $( ".posted" ).hasClass( "viewed" )){
+            $('.posted').removeClass('viewed')
+            $(this).parent().addClass("viewed");
+        }
+        else{
+            $(this).parent().addClass("viewed");
+        }
+         
+        
     });
+
+
+ 
 
 
 
