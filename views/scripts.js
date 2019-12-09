@@ -1,20 +1,73 @@
 $(document).ready(function () {
     var url = 'http://localhost:8081/diary'
+    var imageURL = 'http://localhost:8081/static/'
+    var home = 'index.html';
+    let href = window.location.href;
 
-    $.ajax({
-        type: 'GET',
-        url: url + '/all'
-    })
-        .done(function (msg) {
-            console.log(msg)
+
+
+    if (!href.includes(home)) {
+        console.log(false)
+        $.ajax({
+            type: 'GET',
+            url: url + '/all'
         })
-        .fail(function (msg) {
-            if (msg == undefined) {
-                console.log('no entries')
-            } else {
-                alert(msg)
-            }
+            .done(function (response) {
+                console.log(response.data, 'the data')
+                response.data.forEach(element => {
+                    let date = new Date(Date.parse(element.createdAt))
+                    templateString = ` <div class="posted media border p-3"><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
+                     <div class="media-body"> <h4>John Doe <small><i>Posted on ${date.toUTCString()}</i></small></h4><h5>${element.title}</h5> 
+                     <img src=${imageURL}${element.img} alt='image' >
+                     <p>${element.body}</p> <br></div><div class=" d-flex-inline" > <button class="btn btn-primary" type="button" id='btnView'> View</button> </div></div>`
+                    $(templateString).appendTo('.content');
+                    $('#newEntry').modal('hide');
+                });
+            })
+            .fail(function (msg) {
+                if (msg == undefined) {
+                    console.log('no entries')
+                } else {
+                    alert(msg)
+                }
+            })
+
+    } else {
+        console.log(true)
+        $.ajax({
+            type: 'GET',
+            url: url + '/latest'
         })
+            .done(function (response) {
+                console.log(response.data.length)
+               if(response.data.length >= 1){
+                   console.log(true)
+                response.data.forEach(element => {
+                    let date = new Date(Date.parse(element.createdAt))
+                    templateString = ` <div class="media border p-3"><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
+                     <div class="media-body"> <h4>John Doe <small><i>Posted on ${date.toUTCString()}</i></small></h4><h5>${element.title}</h5> 
+                     <p>${element.body}</p> <br></div> <div class="d-flex" > <button class="btn btn-primary" type="button" id='btnView'> View</button> </div> </div>`
+                    $(templateString).appendTo('.content');
+                    $('#newEntry').modal('hide');
+                });
+               }else{
+                   console.log(false)
+                let result = `<h1 class='text-center mt-3' id='status'>No Entry Yet</h1>`
+                $(result).appendTo('.content');
+                $('#newEntry').modal('hide');
+               }
+            })
+            .fail(function (msg) {
+                if (msg == undefined) {
+                    console.log('no entries')
+                } else {
+                    alert(msg)
+                }
+            })
+
+    }
+
+
 
     $('#btnAdd').click(function (e) {
         e.preventDefault()
@@ -23,8 +76,9 @@ $(document).ready(function () {
         let body = $('#body').val();
         let fd = new FormData();
         var files = $('#uploadFile')[0].files[0];
+        console.log(files)
         var templateString;
-        if (files == undefined) {
+        if (files != undefined) {
             fd.append('img', files);
             fd.append('title', title)
             fd.append('body', body)
@@ -40,28 +94,33 @@ $(document).ready(function () {
             processData: false,
         })
             .done(function (response) {
-                if (response.data.img == undefined) {
-                    templateString = ` <div class="media border p-3"><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> <h4>John Doe <small><i>Posted on ${response.data.createdAt}}</i></small></h4> <p>${response.data.title}</p>  <button class="btn btn-primary" type="button"> View</button> </div> </div>`
-                }
-                else {
-                     templateString = `<div class="card w-75" id="${response.data._id}"><div class="card-header text-center  ">${response.data.title}</div><div class="card-body"> <img src="http://localhost:8081/static/uploads/${response.data.img}" class ="center"  height="200px" width="200px"/><p>${response.data.body}</p><br><br><button class="btn btn-outline-primary btnUpdate " id="${response.data._id}">Update</button><button class="btn btn-outline-danger btnDelete" id="${response.data._id}">Delete</button></div></div> <br>`
-                }
+                console.log(response)
+                response = response.data
+                let date = new Date(Date.parse(response.createdAt))
+                templateString = ` <div class="media border p-3"><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
+                    <div class="media-body"> <h4>John Doe <small><i>Posted on ${date.toUTCString()}</i></small></h4><h5>${response.title}</h5> 
+                    <p>${response.body}</p> <br></div> <div class="d-flex" > <button class="btn btn-primary" type="button"> View</button> </div> </div>`
+                $('.content .media').last().remove();
                 $(templateString).prependTo('.content');
+                $('#title').val('');
+                $('#body').val('');
+                $('#uploadFile')[0].files[0] = null;
+                $('#status').hide()
                 $('#newEntry').modal('hide');
+
             })
             .fail(function (response) {
-                alert(response.data.status)
+                alert(response)
             })
 
 
     });
-       
 
 
-
-
-
-
+    $('#btnView').click(function(){
+        alert('clicked')
+            $(this).parent().attr('overflow','auto')
+    });
 
 
 

@@ -15,7 +15,7 @@ header{
 }
 
 .navbar {
-    background-color: #add6ff;
+    background-color: #84c1ff ;
 
 }
 
@@ -41,15 +41,76 @@ header{
 .media {
    background: #eaf4ff; 
    margin-bottom: 20px;
+   max-height: 150px;
+   /* white-space: pre-line; */
+
+
 }
 
+
+.media-body{
+    margin: 10px 0 10px 0;
+
+  
+}
+
+.posted  {
+    min-height: 200px;
+    max-height: 400px;
+    overflow: hidden;
+}
+ /* .posted .media-body{ */
+    /* margin: 10px 0 10px 0; */
+    /* overflow: hidden; */
+  
+/* } */
+
+
+.posted .media-body img{
+    margin-left: 350px;
+    width: 200px;
+    height: 200px;
+}
+.posted .media-body p{
+    background-color: #fff6e9 ;
+    margin-top: 10px;
+   text-indent: 50px;
+   text-align: justify;
+   white-space: normal;
+}
+
+.posted .d-flex-inline{
+    margin-top: 31%;
+    right: 20%;
+    position: sticky;
+}
+
+
+.row h3{
+    background-color: #a7adba     ;
+    color:black;
+    width: 350px;
+    height: 40px;
+    text-align: center;
+    margin: 10px auto 10px auto;
+    border-radius: 10px;
+}
+.media-body p{
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 900px;
+}
 
 .media img{
     width: 50px;
     height: 40px;
+    
 }
-.btn{
+ .media .btn{
     float: right;
+    margin-bottom: 10px;
 }
 .panel-heading {
     background-color: #d6eaff;
@@ -57,5 +118,8 @@ header{
 
 .panel-body .form-control{
     margin-top: 20px;
+}
+.d-flex{
+    margin-top: 85px;
 }
 

@@ -28,13 +28,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(express.static('../public'));
+app.use(express.static('../public/images'));
 app.use(cors());
-app.use('/static', express.static('../public'));
+app.use('/static', express.static('./public/images'));
 
 
 app.get('/', function (req, res) {
-    res.send('hello world');
+    res.sendfile('http://localhost:8081/static/img-1575875438064.jpg');
 });
 
 app.use('/diary',upload.single('img'), userRoute);

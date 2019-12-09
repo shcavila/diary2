@@ -31,7 +31,7 @@
                                 Entry</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="entries.html">Entries</a>
+                            <a class="nav-link " href="entries.html" id="entries">Entries</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -79,14 +79,17 @@
         <!-- Page content -->
         <div class="container">
             <div class="row">
+                <h3>Latest Entries</h3>
                 <div class="container mt-3 content">
-                    <div class="media border p-3">
+                    <!-- <div class="media border p-3">
                         <img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 ">
                         <div class="media-body">
                             <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua.
                             </p>
+                        </div>
+                        <div class="d-flex" >
                             <button class="btn btn-primary" type="button"> View</button>
                         </div>
                     </div>
@@ -99,9 +102,11 @@
                                 elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua
                             </p>
+                        </div>
+                        <div class="d-flex" >
                             <button class="btn btn-primary" type="button"> View</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -124,7 +129,8 @@
                     </div>
                     <div class="modal-body panel-body">
                         <form>
-                            <input class="form-control mr-sm-2" type="text" placeholder="Title" aria-label="Title" id="title">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Title" aria-label="Title"
+                                id="title">
                             <br>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="uploadFile">
