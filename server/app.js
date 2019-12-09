@@ -4,7 +4,7 @@ const userRoute = require('./routes/userRoute');
 const cors = require('cors');
 const port = process.env.PORT || 8081;
 const bodyParser = require('body-parser');
-const store = require('../helpers/storage');
+const store = require('./config/storage');
 const multer = require('multer');
 const mongoose = require("mongoose");
 

@@ -1,3 +1,7 @@
+header{
+    min-height: 500px;
+}
+
 .header {
     /* background-image: 'assets/homeBG.jpg'; */
      /* background-color: #ebf4f6  ; */
@@ -35,10 +39,10 @@
 }
 
 .media {
-    margin-bottom: 10px;
    background: #eaf4ff; 
-   margin-bottom: 15px;
+   margin-bottom: 20px;
 }
+
 
 .media img{
     width: 50px;

@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
 </head>
 
 <body>
@@ -39,9 +40,9 @@
                     </form>
                 </div>
             </nav>
-            <div class="header ">
+            <!-- <div class="header ">
                 <img src="assets/homeBG.jpg" alt="Home">
-            </div>
+            </div> -->
             <!-- <div id="demo" class="carousel slide" data-ride="carousel"> -->
 
             <!-- Indicators -->
@@ -78,7 +79,7 @@
         <!-- Page content -->
         <div class="container">
             <div class="row">
-                <div class="container mt-3">
+                <div class="container mt-3 content">
                     <div class="media border p-3">
                         <img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 ">
                         <div class="media-body">
@@ -123,23 +124,28 @@
                     </div>
                     <div class="modal-body panel-body">
                         <form>
-                            <input class="form-control mr-sm-2" type="text" placeholder="Title" aria-label="Title">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Title" aria-label="Title" id="title">
                             <br>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="uploadFile">
                                 <label class="custom-file-label" for="uploadFile">Choose file</label>
                             </div>
-                            <textarea placeholder="Type Here" class="form-control"></textarea>
+                            <textarea placeholder="Type Here" class="form-control" id="body"></textarea>
                         </form>
 
                     </div>
                     <div class="modal-footer panel-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="btnAdd">Add</button>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+        <!-- Page Content -->
+        <!-- <div class="container content"></div> -->
 
 </body>
 

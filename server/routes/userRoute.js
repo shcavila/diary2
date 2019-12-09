@@ -86,8 +86,8 @@ router.post('/add', (req, res) => {
       let entry = new Entry(data );
   
       entry.save()
-      .then(() => {
-          res.json({message:"Successfull"});
+      .then((data) => {
+          res.json({data:data, message : 'Successfully Saved'});
           console.log('saved');
       }).catch((err) => {
           res.status(400).json({err:err.message   });
