@@ -9,9 +9,9 @@ $(document).ready(function () {
     if (!href.includes(home)) {
         console.log(false)
         $.ajax({
-            type: 'GET',
-            url: url + '/all'
-        })
+                type: 'GET',
+                url: url + '/all'
+            })
             .done(function (response) {
                 console.log(response.data, 'the data')
                 response.data.forEach(element => {
@@ -35,27 +35,27 @@ $(document).ready(function () {
     } else {
         console.log(true)
         $.ajax({
-            type: 'GET',
-            url: url + '/latest'
-        })
+                type: 'GET',
+                url: url + '/latest'
+            })
             .done(function (response) {
                 console.log(response.data.length)
-               if(response.data.length >= 1){
-                   console.log(true)
-                response.data.forEach(element => {
-                    let date = new Date(Date.parse(element.createdAt))
-                    templateString = ` <div class="media border p-3" id='${element._id}'><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
+                if (response.data.length >= 1) {
+                    console.log(true)
+                    response.data.forEach(element => {
+                        let date = new Date(Date.parse(element.createdAt))
+                        templateString = ` <div class="media border p-3" id='${element._id}'><img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 "> 
                      <div class="media-body"> <h4>John Doe <small><i>Posted on ${date.toUTCString()}</i></small></h4><h5>${element.title}</h5> 
                      <p>${element.body}</p> <br></div> <div class="d-flex" > <button class="btn btn-primary btnView" type="button" > View</button> </div> </div>`
-                    $(templateString).appendTo('.content');
+                        $(templateString).appendTo('.content');
+                        $('#newEntry').modal('hide');
+                    });
+                } else {
+                    console.log(false)
+                    let result = `<h1 class='text-center mt-3' id='status'>No Entry Yet</h1>`
+                    $(result).appendTo('.content');
                     $('#newEntry').modal('hide');
-                });
-               }else{
-                   console.log(false)
-                let result = `<h1 class='text-center mt-3' id='status'>No Entry Yet</h1>`
-                $(result).appendTo('.content');
-                $('#newEntry').modal('hide');
-               }
+                }
             })
             .fail(function (msg) {
                 if (msg == undefined) {
@@ -87,12 +87,12 @@ $(document).ready(function () {
             fd.append('body', body)
         }
         $.ajax({
-            url: url + '/add',
-            type: 'POST',
-            data: fd,
-            contentType: false,
-            processData: false,
-        })
+                url: url + '/add',
+                type: 'POST',
+                data: fd,
+                contentType: false,
+                processData: false,
+            })
             .done(function (response) {
                 console.log(response)
                 response = response.data
@@ -118,20 +118,21 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '.btnView', function () {
-         alert('clicked');
-        if(  $( ".posted" ).hasClass( "viewed" )){
+        alert('clicked');
+        if ($(".posted").hasClass("viewed")) {
             $('.posted').removeClass('viewed')
             $(this).parent().addClass("viewed");
-        }
-        else{
-            $(this).parent().addClass("viewed");
-        }
          
-        
+        } else {
+            $(this).parent().addClass("viewed");
+            $(this).text('Close')
+        }
+
+
     });
 
 
- 
+
 
 
 

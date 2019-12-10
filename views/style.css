@@ -5,8 +5,10 @@ header {
 .header {
     color: white;
     text-align: center;
-    margin: auto;
-    margin-bottom: 50px
+     display: block;
+     margin-top: 15px;
+     margin-bottom: 50px;
+   
 }
 
 .header img {
@@ -15,7 +17,6 @@ header {
 
 .navbar {
     background-color: #84c1ff;
-    margin: auto;
 
 }
 
@@ -43,11 +44,6 @@ header {
 
 .media {
     background: #eaf4ff;
-    /* max-height: 150px;
-    width: 100%;
-    display: block;
-    right: auto;
-    left: auto; */
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -58,12 +54,6 @@ header {
 
 }
 
-
-/* .media-body {
-    margin: 10px 0 10px 0;
-
-
-} */
 
 .media img {
     width: 50px;
@@ -76,30 +66,25 @@ header {
 
 .posted {
     min-height: 200px;
-    max-height: 300px;
+    max-height: 350px;
     overflow: hidden;
 }
 
-/* .posted .media-body{ */
-/* margin: 10px 0 10px 0; */
-/* overflow: hidden; */
-
-/* } */
 
 
 .posted .media-body img {
     display: block;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* .posted .media-body{
-  
-} */
+
 .posted .media-body p {
     background-color: #fff6e9;
     margin-top: 10px;
-    /* text-indent: 50px; */
     margin: auto;
     text-align: justify;
     white-space: normal;
@@ -109,20 +94,18 @@ header {
     float: left;
     margin-top: auto;
     right: 0;
-    position: sticky;
 }
 
 .viewed {
     white-space: normal;
     overflow: auto;
+    position: relative;
 
 }
 
 .viewed .d-flex-inline {
-    /* top:10%; */
-    margin-top: auto;
-    position: fixed;
-    right: 12%;
+    position: absolute;
+    right: 15px;
     bottom: 5%;
 
 }

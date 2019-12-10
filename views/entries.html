@@ -3,7 +3,6 @@
 
 <head>
     <title>My Diary</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -16,7 +15,7 @@
 <body>
     <div class="pos-f-t">
         <header>
-            <nav class="navbar navbar-expand-lg nav-custom">
+            <nav class="navbar navbar-expand nav-custom">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
                     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,7 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item ">
+                        <li class="nav-item   ">
                             <a class="nav-link " href="index.html">Home</a>
                         </li>
                         <li class="nav-item ">
@@ -32,7 +31,7 @@
                                 Entry</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link " href="entries.html">Entries</a>
+                            <a class="nav-link " href="entries.html" id="entries">Entries</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -80,7 +79,37 @@
         <!-- Page content -->
         <div class="container">
             <div class="row">
-                <div class="container mt-3 content lazyload">
+                <h3>Latest Entries</h3>
+                <div class="container mt-3 ">
+                    <div class="container content">
+
+                    </div>
+                    <!-- <div class="media border p-3">
+                        <img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 ">
+                        <div class="media-body">
+                            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                        <div class="d-flex" >
+                            <button class="btn btn-primary" type="button"> View</button>
+                        </div>
+                    </div>
+                    <div class="media border p-3">
+                        <img src="assets/note.png" alt="John Doe" class="mr-3 mt-3 ">
+                        <div class="media-body">
+                            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing
+                                elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua
+                            </p>
+                        </div>
+                        <div class="d-flex" >
+                            <button class="btn btn-primary" type="button"> View</button>
+                        </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -103,23 +132,29 @@
                     </div>
                     <div class="modal-body panel-body">
                         <form>
-                            <input class="form-control mr-sm-2" type="text" placeholder="Title" aria-label="Title">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Title" aria-label="Title"
+                                id="title">
                             <br>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="uploadFile">
                                 <label class="custom-file-label" for="uploadFile">Choose file</label>
                             </div>
-                            <textarea placeholder="Type Here" class="form-control"></textarea>
+                            <textarea placeholder="Type Here" class="form-control" id="body"></textarea>
                         </form>
 
                     </div>
                     <div class="modal-footer panel-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="btnAdd">Add</button>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+        <!-- Page Content -->
+        <!-- <div class="container content"></div> -->
 
 </body>
 
