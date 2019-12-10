@@ -58,14 +58,14 @@ header {
 .media img {
     width: 50px;
     height: 40px;
-    display: block;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
 
 }
 
 .posted {
-    min-height: 200px;
+    min-height: 150px;
     max-height: 350px;
     overflow: hidden;
 }
@@ -75,7 +75,7 @@ header {
 .posted .media-body img {
     display: block;
     width: 200px;
-    height: 200px;
+    height: 150px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -83,16 +83,20 @@ header {
 
 
 .posted .media-body p {
-    background-color: #fff6e9;
-    margin-top: 10px;
+    max-width: 700px;
     margin: auto;
+    text-indent: 50px;
     text-align: justify;
-    white-space: normal;
+    margin-top: 10px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .posted .d-flex-inline {
     float: left;
-    margin-top: auto;
+   top: auto;
     right: 0;
 }
 
@@ -106,7 +110,12 @@ header {
 .viewed .d-flex-inline {
     position: absolute;
     right: 15px;
-    bottom: 5%;
+    margin-top: 33%;
+
+}
+
+.viewed .media-body p {
+    white-space: normal;
 
 }
 
@@ -123,9 +132,9 @@ header {
 
 .media-body p {
     display: inline-block;
-    text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .media .btn {
@@ -143,4 +152,36 @@ header {
 
 .d-flex {
     margin-top: 85px;
+    float: left;
 }
+
+.btnUpdate{
+    display: none;
+}
+
+#body{
+    height: 250px;
+}
+
+
+
+.w3-sidebar  {
+    height: 150px;
+    margin: auto;
+    display: none;
+}
+.w3-sidebar ul {
+     list-style-type: none;
+  
+}
+.w3-sidebar ul  li{
+    margin-bottom: 20px;
+}
+
+
+
+
+/* .w3-sidebar ul li {
+   background: teal;
+ 
+} */

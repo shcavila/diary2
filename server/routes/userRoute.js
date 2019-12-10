@@ -111,9 +111,9 @@ router.post('/add', (req, res) => {
       entry.save()
             .then((data) => {
                   res.json({ data: data, message: 'Successfully Saved' });
-                  console.log('saved');
+                  console.log(data);
             }).catch((err) => {
-                  res.status(400).json({ err: err.message });
+                  res.status(400).json(err.message);
                   console.log(err)
             });
 });
