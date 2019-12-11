@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Entry = require('../model/entry');
 const path = require('path')
+const mongoose = require('mongoose')
 
 
 
@@ -65,16 +66,20 @@ router.post('/delete/:id', (req, res) => {
 });
 
 router.post('/update', (req, res) => {
+      console.log(typeof req.body.id)
       Entry.findById(req.body.id)
             .then(doc => {
                   if (doc) {
+                        console.log(doc)
                         res.json(doc)
                   } else {
+                        console.log('not found')
                         res.end()
                   }
             })
             .catch(err => {
                   res.send(err)
+                  console.log(err)
             });
 
 });

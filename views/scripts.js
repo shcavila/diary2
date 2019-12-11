@@ -191,7 +191,7 @@ $(document).ready(function () {
                     } else {
                         swal("Ooops", 'Something went wrong', "error")
                     }
-                }); 
+                });
 
 
         });
@@ -202,6 +202,10 @@ $(document).ready(function () {
     $(document).on('click', '.menu', function () {
 
         let id = $(this).attr('id').substring(19, 24)
+        let entryID = {
+            id :  $(this).attr('id')
+        }
+        console.log(entryID)
         $(`#${id}`).show()
         $(this).hide()
         $(document).on('click', '.icClose', function () {
@@ -210,7 +214,26 @@ $(document).ready(function () {
         })
 
         $(document).on('click', '.icEdit', function () {
-            alert(' update modal ')
+            $.ajax({
+                type: "POST",
+                url: url+'/update',
+                dataType: 'json',
+                data: entryID,
+            })
+                .done(function (response) {
+                    console.log("test")
+                    $('#newEntry').modal('show');
+                    $('#newEntry #modalTitle').text('Update Entry')
+                    $('#newEntry #btnAdd').text('Save Changes')
+                    $('#newEntry .btnPrimary').attr('id',)
+                    $('#title').val(response.title)
+                    $('#body').val(response.body)
+
+                })
+                .fail(function(response){
+                    alert("err")
+                })
+
         })
 
         $(document).on('click', '.icDelete', function () {
@@ -242,7 +265,7 @@ $(document).ready(function () {
                             timeout: 1000
                         });
                     } else {
-                        swal("Your imaginary file is safe!");
+                        swal("Your entry file is safe!");
                     }
                 });
         });
@@ -250,20 +273,18 @@ $(document).ready(function () {
     });
 
 
-    $('.search').on("keyup", function() {
+    $('.search').on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $(".content *").filter(function() {
+        $(".content *").filter(function () {
             $(this).toggle($(this).parent().parent().text().indexOf(value) > -1)
-
-       
-//$(this).show($(this).parent().parent().text().indexOf(value) > -1)
-           // $(this).show($(this).parent().parent().text().indexOf(value) > -1)
-
-            let id = $(this).attr('id')
-            //$(`#${id}`).hide()
-        //   $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
-      });
-    
+
+
+    });
+
+
+
+
+
 
 });
