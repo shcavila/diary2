@@ -6,7 +6,7 @@ const path = require('path')
 
 
 router.get('/latest', (req, res) => {
-      Entry.find({})
+      Entry.find({deletedAt:null})
             .limit(3)
             .sort({
                   createdAt: -1
@@ -27,7 +27,7 @@ router.get('/latest', (req, res) => {
 
 
 router.get('/all', (req, res) => {
-      Entry.find({})
+      Entry.find({deletedAt:null})
             .sort({
                   createdAt: -1
             })
@@ -46,8 +46,11 @@ router.get('/all', (req, res) => {
 });
 
 
-router.post('/delete', (req, res) => {
-      Entry.findByIdAndRemove(req.body.id)
+router.post('/delete/:id', (req, res) => {
+      let data = {
+            deletedAt: new Date()
+      }
+      Entry.findByIdAndUpdate(req.params.id,data, {new : true})
             .then(doc => {
                   if (doc) {
                         res.json(doc);

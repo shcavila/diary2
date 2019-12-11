@@ -22,6 +22,10 @@ var entrySchema = new Schema({
     editedAt:{
         type: Date,
         required: false
+    },
+    deletedAt:{
+        type:Date,
+        required:false
     }
 
 });

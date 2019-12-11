@@ -49,10 +49,9 @@ header {
     flex-wrap: wrap;
     left: auto;
     right: auto;
-   
-
-
 }
+
+
 
 
 .media img {
@@ -131,6 +130,7 @@ header {
 }
 
 .media-body p {
+    max-width: 600px;   
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
